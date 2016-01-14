@@ -1,28 +1,62 @@
 package nl.ekholabs.escode.app;
 
+import nl.ekholabs.escode.action.GenerateEsCodeAction;
 import nl.ekholabs.escode.action.SelectFileAction;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.io.File;
+import java.util.Optional;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class EsCode {
 
-  public static void main(String... args) {
-    final JFrame frame = new JFrame("ES-Code");
+  private final JFrame frame;
+  private Optional<File> selectedFile;
 
-    final SelectFileAction fileAction = new SelectFileAction(frame);
-    final JButton openButton = new JButton(fileAction);
-    openButton.setText("Open");
+  public EsCode() {
+    frame = new JFrame("ES-Code");
+  }
+
+  public void setSelectedFile(Optional<File> selectedFile) {
+    this.selectedFile = selectedFile;
+  }
+
+  public Optional<File> getSelectedFile() {
+    return selectedFile;
+  }
+
+  public JFrame getFrame() {
+    return frame;
+  }
+
+  public static void main(String... args) {
+    final EsCode esCodeWindow = new EsCode();
+
+    final JFrame frame = esCodeWindow.getFrame();
+
+    final JButton generateButton = new JButton("Generate ES-Code...");
+    final JButton parseButton = new JButton("Parse ES-Code...");
+
+    generateButton.addActionListener(e -> {
+      esCodeWindow.setSelectedFile(new SelectFileAction(frame).openFile());
+      new GenerateEsCodeAction(esCodeWindow, esCodeWindow.getSelectedFile().get()).generateFile();
+    });
+
+    parseButton.addActionListener(e -> {
+      JOptionPane.showMessageDialog(frame, "Not implemented yet.");
+    });
 
     frame.getContentPane().setLayout(new BorderLayout());
 
     final JPanel panel = new JPanel();
     panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-    panel.add(openButton);
+    panel.add(generateButton);
+    panel.add(parseButton);
 
     frame.add(panel, BorderLayout.NORTH);
 
