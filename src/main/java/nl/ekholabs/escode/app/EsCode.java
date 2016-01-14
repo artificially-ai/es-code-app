@@ -1,6 +1,7 @@
 package nl.ekholabs.escode.app;
 
 import nl.ekholabs.escode.action.GenerateEsCodeAction;
+import nl.ekholabs.escode.action.ParseEsCodeAction;
 import nl.ekholabs.escode.action.SelectFileAction;
 
 import java.awt.BorderLayout;
@@ -10,7 +11,6 @@ import java.util.Optional;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class EsCode {
@@ -48,7 +48,8 @@ public class EsCode {
     });
 
     parseButton.addActionListener(e -> {
-      JOptionPane.showMessageDialog(frame, "Not implemented yet.");
+      esCodeWindow.setSelectedFile(new SelectFileAction(frame).openFile());
+      new ParseEsCodeAction(esCodeWindow, esCodeWindow.getSelectedFile().get()).parseFile();
     });
 
     frame.getContentPane().setLayout(new BorderLayout());
