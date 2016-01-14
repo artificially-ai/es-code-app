@@ -2,8 +2,8 @@ package nl.ekholabs.escode.action;
 
 import nl.ekholabs.escode.app.EsCode;
 import nl.ekholabs.escode.core.EsCodeGenerator;
-import nl.ekholabs.escode.graphics.EsCodeCanvas;
 import nl.ekholabs.escode.graphics.EsCodeColour;
+import nl.ekholabs.escode.graphics.GeneratedCanvas;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -38,7 +38,7 @@ public class GenerateEsCodeAction {
       esCodeGenerator.drawGraphics(colours, generateImage.getGraphics());
       esCodeGenerator.persistImage(generateImage, selectedFile.getParent());
 
-      final EsCodeCanvas canvas = new EsCodeCanvas(colours);
+      final GeneratedCanvas canvas = new GeneratedCanvas(colours);
 
       final JPanel panel = new JPanel();
       panel.setLayout(new FlowLayout(FlowLayout.LEFT));
