@@ -32,7 +32,7 @@ public class GenerateEsCodeAction {
     try {
       final EsCodeGenerator esCodeGenerator = new EsCodeGenerator();
 
-      final List<EsCodeColour> colours = esCodeGenerator.processFile(selectedFile.getAbsolutePath());
+      final List<EsCodeColour> colours = esCodeGenerator.generateEsColours(selectedFile.getAbsolutePath());
 
       final BufferedImage generateImage = esCodeGenerator.createImage(colours);
       esCodeGenerator.drawGraphics(colours, generateImage.getGraphics());

@@ -34,11 +34,11 @@ public class ParseEsCodeAction {
 
       final EsCodeParser esCodeParser = new EsCodeParser();
 
-      final List<Integer> byteBuffer = esCodeParser.processFile(bufferedImage);
-      final BufferedImage clone = esCodeParser.clone(bufferedImage);
+      final List<Integer> byteBuffer = esCodeParser.extractBytesFromImage(bufferedImage);
+      final BufferedImage clone = esCodeParser.createImage(bufferedImage);
       esCodeParser.drawGraphics(clone.getGraphics(), bufferedImage);
       esCodeParser.persistImage(clone, selectedFile.getParent());
-      esCodeParser.persistData(byteBuffer, selectedFile.getParent());
+      esCodeParser.persistRawData(byteBuffer, selectedFile.getParent());
 
       final ParsedCanvas canvas = new ParsedCanvas(clone);
 
