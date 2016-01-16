@@ -51,6 +51,20 @@
     </repository>
   </repositories>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>mvn-repo-snapshots</id>
+      <name>ekholabs mvn-repo</name>
+      <url>https://github.com/ekholabs/mvn-repo/raw/checkstyle/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <distributionManagement>
     <repository>
       <id>internal.repo</id>
