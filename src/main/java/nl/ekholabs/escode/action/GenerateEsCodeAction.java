@@ -29,10 +29,11 @@ public class GenerateEsCodeAction {
   public void generateFile() {
     final Frame frame = parent.getFrame();
 
-    try {
-      final EsCodeGenerator esCodeGenerator = new EsCodeGenerator();
+    final EsCodeGenerator esCodeGenerator = new EsCodeGenerator();
 
-      final List<EsCodeColour> colours = esCodeGenerator.generateEsColours(selectedFile.getAbsolutePath());
+    List<EsCodeColour> colours;
+    try {
+      colours = esCodeGenerator.generateEsColours(selectedFile.getAbsolutePath());
 
       final BufferedImage generateImage = esCodeGenerator.createImage(colours);
       esCodeGenerator.drawGraphics(colours, generateImage.getGraphics());
