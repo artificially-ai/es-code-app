@@ -1,0 +1,33 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.checkstyle
+.classpath
+.project
+.settings/
+target/
+
+# IntelliJ IDEA
+.idea/libraries/Maven__nl_ekholabs_escode_es_code_1_0_SNAPSHOT.xml
+./idea/
+.idea/codeStyleSettings.xml
+.idea/compiler.xml
+.idea/copyright/
+.idea/misc.xml
+.idea/workspace.xml
+dependency-reduced-pom.xml
+.idea/encodings.xml
+.idea/libraries/Maven__junit_junit_4_12.xml
+.idea/libraries/Maven__mcc_checkstyle_checkstyle_1_0_SNAPSHOT.xml
+.idea/modules.xml
+.idea/vcs.xml
+es-code-app.iml
