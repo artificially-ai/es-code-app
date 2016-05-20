@@ -3,8 +3,9 @@ package nl.ekholabs.escode.graphics;
 import nl.ekholabs.escode.core.EsCodeGenerator;
 
 import java.awt.Graphics;
-import java.util.List;
+import java.awt.image.BufferedImage;
 
+import java.util.List;
 import javax.swing.JComponent;
 
 public class GeneratedCanvas extends JComponent {
@@ -22,6 +23,7 @@ public class GeneratedCanvas extends JComponent {
     setOpaque(true);
 
     final EsCodeGenerator esCodeGenerator = new EsCodeGenerator();
-    esCodeGenerator.drawGraphics(colours, graphics);
+    BufferedImage bufferedImage = esCodeGenerator.createImage(colours);
+    esCodeGenerator.drawGraphics(colours, bufferedImage);
   }
 }

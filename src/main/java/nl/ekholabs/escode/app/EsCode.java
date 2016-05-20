@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.io.File;
 import java.util.Optional;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,18 +19,6 @@ public class EsCode {
 
   public EsCode() {
     frame = new JFrame("ES-Code");
-  }
-
-  public void setSelectedFile(Optional<File> selectedFile) {
-    this.selectedFile = selectedFile;
-  }
-
-  public Optional<File> getSelectedFile() {
-    return selectedFile;
-  }
-
-  public JFrame getFrame() {
-    return frame;
   }
 
   public static void main(String... args) {
@@ -62,8 +49,24 @@ public class EsCode {
     frame.add(panel, BorderLayout.NORTH);
 
     frame.pack();
+
+    frame.setSize(305, 75);
+    frame.setLocationRelativeTo(null);
+
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     frame.setVisible(true);
+  }
+
+  public Optional<File> getSelectedFile() {
+    return selectedFile;
+  }
+
+  public void setSelectedFile(Optional<File> selectedFile) {
+    this.selectedFile = selectedFile;
+  }
+
+  public JFrame getFrame() {
+    return frame;
   }
 }
