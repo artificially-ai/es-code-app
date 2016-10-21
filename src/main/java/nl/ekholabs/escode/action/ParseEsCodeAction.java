@@ -3,6 +3,7 @@ package nl.ekholabs.escode.action;
 import nl.ekholabs.escode.app.EsCode;
 import nl.ekholabs.escode.core.EsCodeParser;
 import nl.ekholabs.escode.graphics.ParsedCanvas;
+import nl.ekholabs.escode.utils.ImageUtility;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -37,8 +38,8 @@ public class ParseEsCodeAction {
       final List<Integer> byteBuffer = esCodeParser.extractBytesFromImage(bufferedImage);
       final BufferedImage clone = esCodeParser.createImage(bufferedImage);
       esCodeParser.drawGraphics(clone.getGraphics(), bufferedImage);
-      esCodeParser.persistImage(clone, selectedFile.getParent());
-      esCodeParser.persistRawData(byteBuffer, selectedFile.getParent());
+      ImageUtility.cloneEsCodeImage(clone, selectedFile.getParent());
+      ImageUtility.persistRawData(byteBuffer, selectedFile.getParent());
 
       final ParsedCanvas canvas = new ParsedCanvas(clone);
 
